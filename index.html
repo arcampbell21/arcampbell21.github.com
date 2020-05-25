@@ -1,35 +1,79 @@
-<html>
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+  h1 {-webkit-text-stroke: 1px black;color: white;}
+  h2 {text-shadow: 0 3px 0 green;color: #292929}
+  nav {color:purple}
+  h3.position1{position:relative;left:50px;}
+  h3.position2{position:absolute;top:330px;}
+  h3.position3{position: -webkit-sticky;
+  position: sticky;}
+</style>
+</head>
+
 <nav>
   <a href="https://svsu.edu/~arcampb3/"> MDrive </a> *
   <a href="https://csis.svsu.edu/~arcampb3/"> CSIS Server </a> *
   <a href="https://arcampbell21.github.io/"> GitHub </a> 
 </nav>
 
-<h1>Hello GitHub!</h1>
+<h1 id="greeting" >Hello GitHub!</h1>
   
 <body>
    <img src="https://via.placeholder.com/200">
 
-<p>The <code>code</code> tag allows you to represent computer code in text more effectively than using bold or italics. 
+<h3 class="position1">
+CSS Display rules are shown below.
+</h3>
 
-<p>
-   <form action="namesmajors.php">
-     <label for="Name">Name:</label><br>
-     <input type="text" id="Name" name="Name" value=""><br>
-     <label for="Major">Major:</label><br>
-     <input type="text" id="Major" name="Major" value=""><br><br>
-     <p>What's you're preferred brand?</p>
-     <select id="brands">
-      <option value="Asus">Asus</option>
-      <option value="HP">HP</option>
-      <option value="Acer">Acer</option>
-      <option value="Lenovo">Lenovo</option>
-     </select>
-     <input type="submit" value="Submit">
-   </form> 
-</p>
+<h3 class="position2">None</h3>
 
-<h1>FACTS  
+<div>
+One of my biggest passions in life is riding motorcycles. Over 3 years ago I started off with a Kawasaki Ninja 250R, a small bike to learn on and see if I liked riding. Now my skills are built up and I've moved to a <p class="none">Honda CBR600RR</p> This bike is much less forgiving being a 600cc SuperSport with hardened suspension, more agressive riding position, and high-performance brakes.
+</div>
+
+<h3 class="position3">Inline</h3>
+
+<div>
+One of my biggest passions in life is riding motorcycles. Over 3 years ago I started off with a Kawasaki Ninja 250R, a small bike to learn on and see if I liked riding. Now my skills are built up and I've moved to a <p style="color:blue;"class="inline">Honda CBR600RR</p> This bike is much less forgiving being a 600cc SuperSport with hardened suspension, more agressive riding position, and high-performance brakes.
+</div>
+
+<h3>Block</h3>
+
+<div>
+One of my biggest passions in life is riding motorcycles. Over 3 years ago I started off with a Kawasaki Ninja 250R, a small bike to learn on and see if I liked riding. Now my skills are built up and I've moved to a <p style="color:blue;"class="block">Honda CBR600RR</p> This bike is much less forgiving being a 600cc SuperSport with hardened suspension, more agressive riding position, and high-performance brakes.
+</div>
+
+<h3>Inline-Block</h3>
+<div>
+One of my biggest passions in life is riding motorcycles. Over 3 years ago I started off with a Kawasaki Ninja 250R, a small bike to learn on and see if I liked riding. Now my skills are built up and I've moved to a <p style="color:blue;"class="inlineblock">Honda CBR600RR</p> This bike is much less forgiving being a 600cc SuperSport with hardened suspension, more agressive riding position, and high-performance brakes.
+</div>
+
+<p style="color:green;">The <code>code</code> tag allows you to represent computer code in text more effectively than using bold or italics. 
+
+<div class="form">
+	</p>
+	   <form action="namesmajors.php">
+		 <label for="Name">Name:</label><br>
+		 <input type="text" id="Name" name="Name" value=""><br>
+		 <label for="Major">Major:</label><br>
+		 <input type="text" id="Major" name="Major" value=""><br><br>
+		 <p>What's you're preferred brand?</p>
+		 <select id="brands">
+		  <option value="Asus">Asus</option>
+		  <option value="HP">HP</option>
+		  <option value="Acer">Acer</option>
+		  <option value="Lenovo">Lenovo</option>
+		 </select>
+		 <input type="submit" value="Submit">
+	   </form> 
+	</p>
+</div>
+
+<h2>FACTS  
 <h3>Berners-Lee was essentially the founding father of the web, being the main developer of HTML, HTTP, and finally publishing the
      world's first website, <a href="info.cern.ch">info.cern.ch</a>. Source: <a href="https://www.history.com/news/the-worlds-first-web-site">History.com</a>
 </h3>
@@ -46,6 +90,10 @@
     without having the structure of HTML. I find it interesting that such a simple language is still used so extensively, with nothing really replacing it, yet.
     Source: <a href="https://css-tricks.com/random-interesting-facts-htmlsvg-usage/">css-tricks.com</a>
 </h3>
+      
+<div class="box">Relevant Screenshots!</div>
+
+
 
 
 </body>
