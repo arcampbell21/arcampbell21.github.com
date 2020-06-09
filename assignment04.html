@@ -1,33 +1,41 @@
 <!DOCTYPE html>
-<html lang=en>
-
+<html>
 <head>
-<link href="style.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-  h1 {-webkit-text-stroke: 1px black;color: white;}
-  h2 {text-shadow: 0 3px 0 green;color: #292929}
-  nav {color:purple}
-  h3.position1{position:relative;left:50px;}
-  h3.position2{position:absolute;top:330px;}
-  h3.position3{position: -webkit-sticky;
-  position: sticky;}
-</style>
+	<title>ClubMeNow:Lite - Club Distances</title>
+	<link rel="icon" href="clubMeNow300x300.png" type="image/png" />
+	<!-- Bootstrap CSS -->
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css' />
+	<!-- ClubMeNow custom CSS -->
+	<link rel='stylesheet' href='clubMeNow.css' />
 </head>
 
-<nav>
-  <a href="https://svsu.edu/~arcampb3/"> MDrive </a> *
-  <a href="https://csis.svsu.edu/~arcampb3/"> CSIS Server </a> *
-  <a href="https://arcampbell21.github.io/"> GitHub </a> 
-</nav>
-<nav>
-  <a href="assignment01.html">Assignment 01</a><br />
-  <a href="assignment02.html">Assignment 02</a><br />
-  <a href="assignment03.html">Assignment 03</a><br />
-  <a href="assignment04.html">Assignment 04</a><br />
-  <a href="assignment05.html">Assignment 05</a><br />
-  <a href="assignment06.html">Assignment 06</a><br />
-  <a href="assignment07.html">Assignment 07</a><br />
-</nav>
+<body onload='appendTableRows();'>
+<div class='container'>
+	<h1>Club Distances</h1>
+	<table id='clubTable' class='table table-striped'>
+		<tr>
+		  <th class='cmn_hidden'>Club</th>
+		  <th class='cmn_alignRight cmn_fullHeight'>Avg</th>
+		  <th class='cmn_alignRight cmn_hidden'>Min</th>
+		  <th class='cmn_alignRight cmn_fullHeight'>Max</th>
+		  <th class='cmn_alignRight cmn_hidden'>Num</th>
+		  <th class='cmn_fullHeight'></th>
+		  <th class='cmn_fullHeight'>Club <button class='btn btn-warning cmn_noPadding cmn_fullHeight' onclick='displayClubEntry();'>&nbsp;&nbsp;+&nbsp;&nbsp;</button></th>
+		</tr>
+	</table>
+	<button class='btn btn-warning' onclick='undoLastShot();'>Undo</button> 
+	<button class='btn btn-danger' onclick='resetAllClubDistances();'>Reset</button> 
+	<button class='btn btn-info' onclick='displayAbout();'>About</button> 
+	<br>
+	<br>
+	<footer>Copyright &copy;2019 George Corser</footer>
+</div>
+<!-- Bootstrap JS -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'></script>
+<!-- ClubMeNow custom JS -->
+<script src='clubMeNow.js'></script>
+<script>var clubs = loadClubDistances(); </script>
 
-<h1 id="greeting" >Assignment 4!</h1>
-
+</body>
+</html>
