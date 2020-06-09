@@ -5,11 +5,7 @@
 <link href="as03.css" rel="stylesheet" type="text/css">
 </head>
 
-//Create JSON array of pars, save to local storage with stringify 
-{
-  pars = [4,5,4,3,4,5,4,3,4, 4,5,4,3,4,5,3,4,4]
-}
-localStorage.setItem("pars", JSON.stringify(pars));
+
   
 <h1>Golf Scorecard</h1>
 <table class="table table-striped">
@@ -157,6 +153,13 @@ localStorage.setItem("pars", JSON.stringify(pars));
   
 <script>
  
+  
+//Create JSON array of pars, save to local storage with stringify 
+{
+  pars = [4,5,4,3,4,5,4,3,4, 4,5,4,3,4,5,3,4,4]
+}
+localStorage.setItem("pars", JSON.stringify(pars));
+  
 // assign the table row for hole 1 to a variable
 var elem
   = document.getElementById("1");
