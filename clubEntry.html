@@ -39,8 +39,44 @@
 	var newClubName ;
 	var newClubDistances;
 	
+	//Checks to see what user inputed into text box and adds the correct club based on that input.
 	function addClub() {
-                // your code here
+                if (document.getElementById(clubName) == "Driver" {
+ 		 addEntry([ 199, "Dr",  "Driver",   0, 0, 0, 0, 10.5, 230, 200]);
+		} else if (document.getElementById(clubName) == "3+ Wood" ) {
+		  addEntry([ 300, "3+w", "3+ wood",  0, 0, 0, 0, 13.5, 210, 180]);
+		} else if (document.getElementById(clubName) == "3 Hybird" ) {
+		  addEntry([ 350, "3h",  "3 hybrid", 0, 0, 0, 0, 18.0, 180, 160]);
+		} else if (document.getElementById(clubName) == "3 Iron" ) {
+		  addEntry([ 399, "3i",  "3 iron",   0, 0, 0, 0, 18.5, 180, 160]);
+		} else if (document.getElementById(clubName) == "4 Iron" ) {
+		  addEntry([ 499, "4i",  "4 iron",   0, 0, 0, 0, 18.5, 170, 150]);
+		} else if (document.getElementById(clubName) == "5 Iron" ) {
+		  addEntry([ 599, "5i",  "5 iron",   0, 0, 0, 0, 21.0, 160, 140]);
+		} else if (document.getElementById(clubName) == "6 Iron" ) {
+		  addEntry([ 699, "6i",  "6 iron",   0, 0, 0, 0, 24.0, 150, 130]);
+		} else if (document.getElementById(clubName) == "7 Iron" ) {
+		  addEntry([ 799, "7i",  "7 iron",   0, 0, 0, 0, 27.0, 140, 120]);
+		} else if (document.getElementById(clubName) == "8 Iron" ) {
+		  addEntry([ 899, "8i",  "8 iron",   0, 0, 0, 0, 31.5, 130, 110]);
+		} else if (document.getElementById(clubName) == "9 Iron" ) {
+		  addEntry([ 999, "9i",  "9 iron",   0, 0, 0, 0, 36.0, 120, 100]);
+		} else if (document.getElementById(clubName) == "Pitching" ) {
+		  addEntry([1099, "Pw",  "Pitching", 0, 0, 0, 0, 41.0, 110,  90]);
+		} else if (document.getElementById(clubName) == "Approach" ) {
+		  addEntry([1199, "Aw",  "Approach", 0, 0, 0, 0, 46.0, 100,  80]);
+		} else if (document.getElementById(clubName) == "Gap" ) {
+		  addEntry([1299, "Gw",  "Gap",      0, 0, 0, 0, 51.0,  90,  70]);
+		} else if (document.getElementById(clubName) == "Sand" ) {
+		  addEntry([1399, "Sw",  "Sand",     0, 0, 0, 0, 56.0,  80,  60]);
+		} else if (document.getElementById(clubName) == "Lob" ) {
+		  addEntry([1499, "Lw",  "Lob",      0, 0, 0, 0, 60.0,  60,  40]);
+		} else if (document.getElementById(clubName) == "Putter" ) {
+		  addEntry([1599, "Ptr", "Putter",   0, 0, 0, 0, 60.0,   3,   3]);
+		} else {
+		  addEntry([ 199, "Dr",  "Driver",   0, 0, 0, 0, 10.5, 230, 200]);
+		}
+		
 	}
 </script>
 
