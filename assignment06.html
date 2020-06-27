@@ -216,28 +216,34 @@ var loans = [
 
   } // end: function loadDoc()
   
-  
+  //Pulls data from the loan array and updates the form
   let updateForm = () => {
     loanWithInterest = 0;
     let totalAmt = 0;
     for(i=1;i<6;i++){
+      //Takes the loan and places it in the loan_year 
       $(`#loan_year0${i}`).val(loans[i-1].loan_year);
       let amt = loans[i-1].loan_amount
+      //Sets total amount
       $(`#loan_amt0${i}`).val(amt);
       totalAmt+= parseFloat(amt);
+      //Sets loan interest
       $(`#loan_int0${i}`).val(loans[i-1].loan_int_rate);
       loanWithInterest = (loanWithInterest + parseFloat(amt)) * (1 + loans[0].loan_int_rate);
-
+      
       $("#loan_bal0" + i).text(toMoney(loanWithInterest));
     }
+    //Set the total final amount of all loans in the bottom right corner
     int = loanWithInterest-totalAmt;
     $(`#loan_int_accrued`).text(toMoney(int));
   }
   
+  //Adds a comma in thousand amounts
   function toComma(value) {
       return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  //Adds a dollar sign to amounts that are dollars
   let toMoney = (value) =>{
     return `\$${toComma(value.toFixed(2))}`;
   }
@@ -308,10 +314,19 @@ var loans = [
      alert(`Error: no saved values`);
   }
  }
+//Angular
+ 
+//Creates the Payments table at the bottom
+//App is the object, myCtrl is a function. You have to have an app
+//The $scope is also needed as it connects the myCtrl with the app
 
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
+  //.payments and .populate are both properties of $scope
+  //Creates payments array
   $scope.payments =[];
+  //Populate fills the payments array
+  //function updates the form and calculates payments as shown via the calculation below
   $scope.populate = function () {
     updateForm();
     let total = loanWithInterest;
@@ -331,6 +346,7 @@ app.controller('myCtrl', function($scope) {
         "ye": toMoney(total += int)
       }
     }
+    //Since the last payment is different, it uses the toMoney(total) and makes a payment off of that amount
     $scope.payments[10] = {
       "year":loans[4].loan_year + 11,
       "payment": toMoney(total),
