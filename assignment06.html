@@ -164,6 +164,7 @@ var loans = [
   function loadDoc() {
     
     // pre-fill defaults for first loan year
+    // This first line initializes the first year, amount, rate, loan+interest
     var defaultYear = loans[0].loan_year;
     $("#loan_year0" + 1).val(defaultYear++);
     var defaultLoanAmount = loans[0].loan_amount;
@@ -174,23 +175,37 @@ var loans = [
     $("#loan_bal0" + 1).text(toMoney(loanWithInterest));
     
     // pre-fill defaults for other loan years
+    // The for loop does years 2-5 of the table and goes off of the first year value, exp: if you inputted 2023 it will fill in 2024, 2025, etc. It does that for each column
     for(var i=2; i<6; i++) {
+    
+      //This adds 1 year to each row
       $(`#loan_year0${i}`).val(defaultYear++);
+    
+      //This will disable all input boxes below the first row
       $(`#loan_year0${i}`).attr("disabled","true");
+     
+      //This greys out the disabled boxes
       $(`#loan_year0${i}`).css({"backgroundColor":"grey","color":"white"});
       $(`#loan_amt0${i}`).val(defaultLoanAmount.toFixed(2));
       $(`#loan_int0${i}`).val(defaultInterestRate);
       $(`#loan_int0${i}`).attr("disabled","true");
       $(`#loan_int0${i}`).css({"backgroundColor":"grey","color":"white"});
+     
+      //This keeps a total of the loans + interest, global variable
       loanWithInterest = (loanWithInterest + defaultLoanAmount) * (1 + defaultInterestRate);
+      //This adds the dollar sign
       $("#loan_bal0" + i).text(toMoney(loanWithInterest));
       } // end: "for" loop
     
     // all input fields: select contents on focus
+    
+    //This one is really basic, it just takes whatever box is in focus, meaning clicked on, and turns it yellow to grab your attention and make it easier to see.
     $("input[type=text]").focus(function() {
       $(this).select();
       $(this).css("background-color", "yellow");
     }); 
+    
+    //This is related to the previous but turns the box back to white when focus is no longer on the box, or it's been "blurred"
     $("input[type=text]").blur(function() {
       $(this).css("background-color", "white");
       updateLoansArray();
@@ -200,6 +215,7 @@ var loans = [
     $("#loan_year01").focus();
 
   } // end: function loadDoc()
+  
   
   let updateForm = () => {
     loanWithInterest = 0;
@@ -228,15 +244,22 @@ var loans = [
   
   function updateLoansArray() {
     let valid = true;
+    
+    //The next 3 lines are examples of regular expressions
+    //This regex is ensuring year has to start with 19 or 20 and can only be 4 digits long
     let yearP = /^(19|20)\d{2}$/;
+    //This one sets parameters and allows a decimal place
     let amtP = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;
+    //This forces intP to start with 0 or nothing and it HAS to contain a decimal point and be no longer than 3 digits.
     let intP = /^(0|)+(.[0-9]{1,5})?$/;
 
+    //This if statement checks the year to see if it is valid via the regex and turns the box red if it is not valid
     if(!yearP.test($(`#loan_year01`).val())){
       valid = false;
       $(`#loan_year01`).css("background-color", "red");
     }
     
+    //This checks the amount for validity, turning red if it is false
     for (i = 1; i < 6; i++) {
       if(!amtP.test($(`#loan_amt0${i}`).val())){
         valid = false;
@@ -244,11 +267,13 @@ var loans = [
       } 
     }
 
+    //This checks the interest for validity, again turning red if it is false
     if(!intP.test($(`#loan_int01`).val())){
       valid = false;
       $(`#loan_int01`).css("background-color", "red");
     }
 
+    //This checks to make sure all values are valid and if so, updates the loan year, amount, and interest rate for each row.
     if(valid){
       loans[0].loan_year = parseInt($("#loan_year01").val());
       for(var i=1; i<5; i++) {
@@ -262,15 +287,19 @@ var loans = [
       for(i=0; i<5; i++){
         loans[i].loan_int_rate = rate;
       }
-
+      
+      //Calls updateForm function
       updateForm();
     }
   }
+//This takes all of the data in the table and saves it local storage
 
- let saveForm = () => {
+  let saveForm = () => {
    localStorage.setItem(`as06`, JSON.stringify(loans));
  }
-
+  
+//This checks local storage to see if there is any saved data, returns and Error alert if it doesn't find any
+ 
  let loadForm = () => {
   if(localStorage.getItem(`as06`) != null){
      loans = JSON.parse(localStorage.getItem(`as06`));
